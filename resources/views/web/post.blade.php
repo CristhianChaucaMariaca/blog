@@ -3,13 +3,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1>Lista de articulos</h1>
-                @foreach ($posts as $post)
+                <h1>{{$post->name}}</h1>
                     <div class="card mb-3">
                         <div class="card-header">
-                            <div class="">
-                                {{$post->name}}
-                            </div>
+                            Categoria: <a href="{{ route('category', $post->category->slug) }}">{{$post->category->name}}</a>
                         </div>
                         <div class="card-body">
                             <div class="">
@@ -18,13 +15,17 @@
                                 @endif
                                 <p class="card-text">
                                     {{$post->excerpt}}
+                                    <hr>
+                                    {!! $post->body !!}
+                                    <hr>
+                                    Etiquetas
+                                    @foreach ($post->tags as $tag)
+                                        <a href="{{ route('tag',$tag->slug) }}" class="btn btn-outline-info btn-sm">{{ $tag->name }}</a>
+                                    @endforeach
                                 </p>
-                                <a href="{{route('post',$post->slug)}}" class="card-link">Leer mas</a>
                             </div>
                         </div>
                     </div>
-                @endforeach
-                {{$posts->render()}}
             </div>
         </div>
     </div>

@@ -15,4 +15,10 @@ Route::redirect('/', 'blog');
 
 Auth::routes();
 
+//Web
 Route::get('/blog', 'Web\PageController@blog')->name('blog');
+Route::get('Entrada/{slug}', 'Web\PageController@post')->name('post');
+Route::get('categoria/{slug}', 'Web\PageController@category')->name('category');
+Route::get('etiqueta/{slug}', 'Web\PageController@tag')->name('tag');
+
+//admin
