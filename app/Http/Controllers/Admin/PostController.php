@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Post;
+use App\Category;
+use App\Tag;
+
 class PostController extends Controller
 {
     /**
@@ -14,7 +18,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('id','DESC')
+        ->where('user_id',auth()->user()->id)
+        ->paginate();
+        return view('admin.posts.index',compact('posts'));
     }
 
     /**
@@ -24,7 +31,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::orderBy('name','ASC')->pluck('name','id');
+        $tags=Tag::orderBy('name','ASC')->get();
+        return view('admin.posts.create',compact('categories','tags'));
     }
 
     /**
@@ -35,7 +44,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post=Post::create($requesta->all());
+        return redirect()->route('posts.edit',$post->id)
+            ->with('info','Se creo el nuevo Post');
     }
 
     /**
@@ -46,7 +57,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post= Post::find($id);
+        return view('admin.posts.show',compact('post'));
     }
 
     /**
@@ -57,7 +69,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories=Category::orderBy('name','ASC')->pluck('name','id');
+        $tags=Tag::orderBy('name','ASC')->get();
+        $post=Post::find($id);
+        return view('admin.posts.edit',compact('post','categories','tags'));
     }
 
     /**
@@ -69,7 +84,10 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post=Post::find($id);
+        $post->fill($request->all())->save();
+        return redirect()->route('posts.edit',$post->id)
+            ->with('info','Post editado correctamente');
     }
 
     /**
@@ -80,6 +98,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id)->delete();
+        return back()->with('info','Entrada eliminada correctamente');
     }
 }
