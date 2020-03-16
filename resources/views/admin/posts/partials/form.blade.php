@@ -52,10 +52,10 @@
 @section('scripts')
 <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#body' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+    // ClassicEditor
+    //     .create( document.querySelector( '#body' ) )
+    //     .catch( error => {
+    //         console.error( error );
+    //     } );
 </script>
 @endsection
