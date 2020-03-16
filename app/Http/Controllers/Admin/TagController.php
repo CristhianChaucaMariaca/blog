@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Request\TagStoreRequest;
-use App\Http\Request\TagUpdateRequest;
+use App\Http\Requests\TagStoreRequest;
+use App\Http\Requests\TagUpdateRequest;
 use App\Tag;
 
 class TagController extends Controller
@@ -45,7 +45,7 @@ class TagController extends Controller
     {
         $tag = Tag::create($request->all());
         return redirect()->route('tags.edit', $tag->id)
-            ->width('info','Etiqueta creada correctamente');
+            ->with('info','Etiqueta creada correctamente');
     }
 
     /**
