@@ -99,3 +99,4 @@ class CategoryController extends Controller
         return back()->with('info', 'Eliminado correctamente');
     }
 }
+    

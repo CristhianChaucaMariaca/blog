@@ -43,9 +43,19 @@
     {{Form::textarea('excerpt',null,['class'=>'form-control','rows'=>'2'])}}
 </div>
 <div class="form-group">
-    {{ Form::label('body','Descripcion') }}
-    {{ Form::textarea('body',null,['class'=>'form-control'])}}
+    {{ Form::label('body','Entrada') }}
+    {{ Form::textarea('body',null,['class'=>'form-control','id'=>'body'])}}
 </div>
 <div class="form-group">
     {{ Form::submit('Guardar', ['class'=>'btn btn-sm btn-primary']) }}
 </div>
+@section('scripts')
+<script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@endsection
