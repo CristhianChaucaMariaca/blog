@@ -21,4 +21,8 @@ class Post extends Model
     public function tags(){
         return  $this->belongstoMany(Tag::class);//Pertenece y tiene muchos...
     }
+
+    public function scopeName($query, $name){
+        return $query->where('name','LIKE',"%$name%");
+    }
 }

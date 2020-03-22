@@ -3,7 +3,21 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1>Lista de articulos</h1>
+                <div class="card">
+                    <div class="card-header">
+                        {{Form::open(['route'=>'blog','method'=>'GET','class'=>'form-inline'])}}
+                            <div class="form-group">
+                                {{Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre'])}}
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-secondary">Buscar</button>
+                            </div>
+                        {{Form::close()}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                
                 @foreach ($posts as $post)
                     <div class="card mb-3">
                         <div class="card-header">

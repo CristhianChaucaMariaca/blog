@@ -6,7 +6,19 @@
                 <div class="card">
                     <div class="card-header">
                         Lista de mis Entradas
-                        <a href="{{route('posts.create')}}" class="btn btn-primary btn-sm">Crear</a>
+                        <a href="{{route('posts.create')}}" class="btn btn-primary">Crear</a>
+                    </div>
+                    <div class="card-header">
+                        {{ Form::open( ['route'=> 'posts.index','method'=>'GET','class'=>'form-inline'] ) }}
+                            <div class="form-group">
+                                {{ Form::text('name',old('name'),['class'=>'form-control','placeholder'=>'Nombre del Post']) }}
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-secondary">
+                                    buscar
+                                </button>
+                            </div>
+                        {{ Form::close() }}
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover" >

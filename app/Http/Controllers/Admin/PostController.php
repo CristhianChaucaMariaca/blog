@@ -20,9 +20,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $name = $request->get('name');
         $posts = Post::orderBy('id','DESC')
+        ->name($name)
         ->where('user_id',auth()->user()->id)
         ->paginate();
         return view('admin.posts.index',compact('posts'));

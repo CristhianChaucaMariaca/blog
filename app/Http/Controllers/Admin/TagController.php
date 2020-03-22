@@ -19,9 +19,11 @@ class TagController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tags = Tag::orderBy('id','DESC')->paginate();
+        $tags = Tag::orderBy('id','DESC')
+        ->name($request->get('name'))
+        ->paginate();
         return view('admin.tags.index', compact('tags'));
     }
 

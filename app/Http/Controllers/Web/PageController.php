@@ -11,8 +11,10 @@ use App\Tag;
 
 class PageController extends Controller
 {
-    public function blog(){
-        $posts=Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate();
+    public function blog(Request $request){
+        $posts=Post::orderBy('id','DESC')
+            ->name($request->get('name'))
+            ->where('status','PUBLISHED')->paginate();
         return view('web.posts', compact('posts'));
     }
 
