@@ -33,6 +33,7 @@
                                 <tr>
                                     <th width="10px">ID</th>
                                     <th>Name</th>
+                                    <th>Estado</th>
                                     <th colspan="3">&nbsp;</th>
                                 </tr>
                             </thead>
@@ -44,6 +45,13 @@
                                         </td>
                                         <td>
                                             {{$post->name}}
+                                        </td>
+                                        <td>
+                                            @if ($post->status == 'PUBLISHED')
+                                                <span class="text-success">Publicado</span>
+                                            @else
+                                                <span class="text-muted">Borrador</span>
+                                            @endif
                                         </td>
                                         <td width="10px"><a href="{{route('posts.show',$post->id)}}" class="btn btn-sm btn-secondary">Ver</a></td>
                                         <td width="10px"><a href="{{route('posts.edit',$post->id)}}" class="btn btn-sm btn-secondary">Editar</a></td>
