@@ -5,18 +5,25 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Lista de Categorias
-                        <a href="{{route('categories.create')}}" class="btn btn-primary">Crear</a>
-                    </div>
-                    <div class="card-header">
-                        {{ Form::open(['route'=>'categories.index','method'=>'GET','class'=>'form-inline']) }}
-                            <div class="form-group">
-                                {{ Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre']) }}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="text-center">Lista de Categorias</h1>
+                                <hr>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-secondary">Buscar</button>
+                            <div class="col-md-6">
+                                <a href="{{route('categories.create')}}" class="btn btn-sm btn-primary float-left">Crear</a>
                             </div>
-                        {{ Form::close() }}
+                            <div class="col-md-6">
+                                {{ Form::open(['route'=>'categories.index','method'=>'GET','class'=>'form-inline float-right']) }}
+                                    <div class="form-group">
+                                        {{ Form::text('name',null,['class'=>'form-control form-control-sm','placeholder'=>'Nombre']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-sm btn-secondary">Buscar</button>
+                                    </div>
+                                {{ Form::close() }}
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover" >

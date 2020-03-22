@@ -5,12 +5,12 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{Form::open(['route'=>'blog','method'=>'GET','class'=>'form-inline'])}}
+                        {{Form::open(['route'=>'blog','method'=>'GET','class'=>'form-inline float-right'])}}
                             <div class="form-group">
-                                {{Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre'])}}
+                                {{Form::text('name',null,['class'=>'form-control form-control-sm','placeholder'=>'Nombre'])}}
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-secondary">Buscar</button>
+                                <button type="submit" class="btn btn-secondary btn-sm">Buscar</button>
                             </div>
                         {{Form::close()}}
                     </div>

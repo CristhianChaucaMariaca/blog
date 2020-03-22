@@ -5,20 +5,27 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Lista de mis Entradas
-                        <a href="{{route('posts.create')}}" class="btn btn-primary">Crear</a>
-                    </div>
-                    <div class="card-header">
-                        {{ Form::open( ['route'=> 'posts.index','method'=>'GET','class'=>'form-inline'] ) }}
-                            <div class="form-group">
-                                {{ Form::text('name',old('name'),['class'=>'form-control','placeholder'=>'Nombre del Post']) }}
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h1>Lista de mis Entradas</h1>
+                                <hr>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-secondary">
-                                    buscar
-                                </button>
+                            <div class="col-md-6">
+                                <a href="{{route('posts.create')}}" class="btn btn-sm btn-primary">Crear</a>
                             </div>
-                        {{ Form::close() }}
+                            <div class="col-md-6">
+                                {{ Form::open( ['route'=> 'posts.index','method'=>'GET','class'=>'form-inline float-right'] ) }}
+                                    <div class="form-group">
+                                        {{ Form::text('name',old('name'),['class'=>'form-control form-control-sm','placeholder'=>'Nombre del Post']) }}
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-sm btn-secondary">
+                                            buscar
+                                        </button>
+                                    </div>
+                                {{ Form::close() }}
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover" >
