@@ -34,6 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
+                        <li><a href="{{route('services')}}" class="nav-link">Servicios</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -49,6 +50,7 @@
                                 </li>
                             @endif
                         @else
+                            <li><a href="{{ route('servicios.index') }} " class="nav-link">Servicios</a></li>
                             <li><a href="{{ route('tags.index') }} " class="nav-link">Etiquetas</a></li>
                             <li><a href="{{ route('categories.index') }}" class="nav-link">Categorias</a></li>
                             <li><a href="{{ route('posts.index') }}" class="nav-link">Entradas</a></li>
@@ -88,7 +90,7 @@
                     </div>
                 </div>
             @endif
-            
+
             @if (count($errors))
                 <div class="container">
                     <div class="row justify-content-center">
@@ -104,12 +106,12 @@
                     </div>
                 </div>
             @endif
-            
+
             @yield('content')
         </main>
     </div>
     {{-- scripts --}}
     @yield('scripts')
-    
+
 </body>
 </html>

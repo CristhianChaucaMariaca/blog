@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use App\service;
 
 class PageController extends Controller
 {
@@ -33,5 +34,14 @@ class PageController extends Controller
             $query->where('slug',$slug);
         })->orderBy('id','DESC')->where('status','PUBLISHED')->paginate();
         return view('web.posts', compact('posts'));
+    }
+
+    public function services(){
+        $services = service::orderBy('id','DESC')->get();
+        return view('web.services.index', compact('services'));
+    }
+    public function service($id){
+        $service = service::find($id);
+        return view('web.services.show',compact('service'));
     }
 }
