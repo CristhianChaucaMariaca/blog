@@ -8,6 +8,11 @@
                         <h5 class="card-title text-center">{{$service->name}}</h5>
                     </div>
                     <div class="card-body">
+                        <h5 class="card-title">Extracto:</h5>
+                        <p class="card-text text-justify">
+                            {{$service->excerpt}}
+                        </p>
+                        <h5 class="card-title">Descripción:</h5>
                         <p class="card-text text-justify">
                             {{$service->description}}
                         </p>

@@ -14,6 +14,7 @@
                             <th width="10">#</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Estado</th>
                             <th colspan="3">&nbsp;</th>
                         </tr>
                     </thead>
@@ -27,7 +28,14 @@
                                     {{$service->name}}
                                 </td>
                                 <td>
-                                    {{$service->description}}
+                                    {{$service->excerpt}}
+                                </td>
+                                <td>
+                                    @if ($service->status ==="DRAFT")
+                                        <span class="text-danger">Borrador</span>
+                                    @else
+                                        <span>Publicado</span>
+                                    @endif
                                 </td>
                                 <td width="10px">
                                     <a href="{{route('servicios.show', $service->id)}}" class="btn btn-sm btn-info">Ver</a>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\service;
 use Illuminate\Http\Request;
+use App\Http\Requests\ServiceStoreRequest;
+use App\Http\Requests\ServiceUpdateRequest;
 
 class ServiceController extends Controller
 {
@@ -34,7 +36,7 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ServiceStoreRequest $request)
     {
         $service = service::create($request->all());
         return redirect()->route('servicios.edit',$service->id)
@@ -72,7 +74,7 @@ class ServiceController extends Controller
      * @param  \App\service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ServiceUpdateRequest $request, $id)
     {
         $service = service::find($id);
         $service->fill($request->all())->save();

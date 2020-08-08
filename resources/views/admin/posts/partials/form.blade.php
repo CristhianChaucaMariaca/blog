@@ -1,3 +1,4 @@
+{{-- Campo oculto para enviar el ID de usuario logueado --}}
 {{ Form::hidden('user_id',auth()->user()->id) }}
 
 <div class="form-group">
