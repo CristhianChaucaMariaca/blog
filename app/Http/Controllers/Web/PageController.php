@@ -9,6 +9,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\service;
+use App\Product;
 
 class PageController extends Controller
 {
@@ -43,5 +44,13 @@ class PageController extends Controller
     public function service($id){
         $service = service::find($id);
         return view('web.services.show',compact('service'));
+    }
+    public function products(){
+        $products = Product::orderBy('id', 'DESC')->where('status','PUBLISHED')->paginate(30);
+        return view('web.products.index',compact('products'));
+    }
+    public function product($id){
+        $product = Product::find($id);
+        return view('web.products.show',compact('product'));
     }
 }

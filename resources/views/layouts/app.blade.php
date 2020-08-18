@@ -35,6 +35,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
                         <li><a href="{{route('services')}}" class="nav-link">Servicios</a></li>
+                        <li><a href="{{ route('productos') }} " class="nav-link">Productos</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

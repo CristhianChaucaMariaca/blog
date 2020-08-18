@@ -17,9 +17,10 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('name')->unique();
+            $table->string('excerpt');
             $table->text('description');
             $table->double('price',8,2);
-            $table->boolean('offer');
+            $table->integer('offer');
             $table->enum('status',['PUBLISHED','DRAFT'])->default('DRAFT');
 
             $table->timestamps();

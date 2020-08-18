@@ -25,6 +25,10 @@ Route::get('etiqueta/{slug}', 'Web\PageController@tag')->name('tag');
 Route::get('services', 'Web\PageController@services')->name('services');
 Route::get('service/{id}', 'Web\PageController@service')->name('service');
 
+//Web - Products
+Route::get('productos','Web\PageController@products')->name('productos');
+Route::get('producto/{id}', 'Web\PageController@product')->name('producto');
+
 
 //**************************************************************************/
 
