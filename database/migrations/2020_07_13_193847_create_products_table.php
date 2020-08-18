@@ -16,18 +16,14 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('service_id')->unsigned();
-
             $table->string('name')->unique();
             $table->text('description');
-            $table->string('link');
+            $table->double('price',8,2);
+            $table->boolean('offer');
             $table->enum('status',['PUBLISHED','DRAFT'])->default('DRAFT');
 
             $table->timestamps();
 
-            $table->foreign('service_id')->references('id')->on('services')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 

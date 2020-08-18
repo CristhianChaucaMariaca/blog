@@ -10,7 +10,4 @@ class service extends Model
         'name','excerpt','description','status'
     ];
 
-    public function products(){
-        return $this->hasMany(Product::class);
-    }
 }

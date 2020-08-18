@@ -18,23 +18,6 @@
                         </p>
                     </div>
                 </div>
-                @foreach ($service->products as $product)
-                    @if ($product->status == 'PUBLISHED')
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <h5 class="card-title">
-                                    {{$product->name}}
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    {{$product->description}}
-                                </p>
-                                <a href="{{ $product->link }}" class="card-link">Consultar producto</a>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
             </div>
         </div>
     </div>
